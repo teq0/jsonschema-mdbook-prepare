@@ -1,0 +1,1 @@
+{"$id":"https://example.com/Location-v1.0","$schema":"http://json-schema.org/draft-07/schema#","description":"A geographical coordinate.","properties":{"latitude":{"maximum":90,"minimum":-90,"type":"number"},"longitude":{"maximum":180,"minimum":-180,"type":"number"}},"required":["latitude","longitude"],"title":"Location v1.0","type":"object"}
