@@ -1,6 +1,6 @@
+# TODO - make this work with folders that have spaces in the name
 
-JSON_SCHEMAS = $(shell find ./test/samples -type f -name '*.schema.json' -print)
-YAML_TARGET_SCHEMAS = $(patsubst %.json, %.yaml, $(JSON_SCHEMAS))
+# this just makes sure that the JSON versions of the schemas are up to date with the YAML versions.
 
 YAML_SCHEMAS = $(shell find ./test/samples -type f -name '*.schema.yaml' -print)
 JSON_TARGET_SCHEMAS = $(patsubst %.yaml, %.json, $(YAML_SCHEMAS))
@@ -10,6 +10,8 @@ JSON_TARGET_SCHEMAS = $(patsubst %.yaml, %.json, $(YAML_SCHEMAS))
 
 json: $(JSON_TARGET_SCHEMAS)
 
+#
+
 .PHONY: clean
 
 clean:
@@ -18,7 +20,9 @@ clean:
 	rm -rf test/doc/book
 	rm -rf test/doc/book-extrafiles
 
-doc: clean json
+# Example of how to use jsonschema-mdbook-prepare to publish JSON Schema documentation to HTML
+
+example: clean json
 	mkdir -p test/doc/src
 	mkdir -p test/doc/out
 	mkdir -p test/doc/book
@@ -33,14 +37,15 @@ doc: clean json
 	rsync --ignore-existing test/doc/book-extrafiles/*.html test/doc/book
 
 
-EXTRA_HTMLFILES:=$(wildcard test/doc/book-extrafiles/*.html)
-SIDEBAR_HTML:=$(shell cat test/doc/book/index.html | grep '<ol class="chapter"' | sed 's/\//\\\//g' | sed 's/"/\\"/g' )
-
+# Version that tries to use sed to do the sidebar fix.
 # This doesn't work for a clean install, or after make clean has been called separately,
 # because the test/doc/book and test/doc/book-extrafiles folders are empty when the makefile is parsed, so these two variables are empty.
 # After many attempts at trying to figure out how to evaluate them at execution time it was easier to just do the sidebar update in Typescript.
 
-doc_old_version: clean json
+EXTRA_HTMLFILES:=$(wildcard test/doc/book-extrafiles/*.html)
+SIDEBAR_HTML:=$(shell cat test/doc/book/index.html | grep '<ol class="chapter"' | sed 's/\//\\\//g' | sed 's/"/\\"/g' )
+
+example_old_version: clean json
 	mkdir -p test/doc/src
 	mkdir -p test/doc/out
 	mkdir -p test/doc/book
@@ -56,4 +61,3 @@ doc_old_version: clean json
 		sed -i '.bak' "s/<ol class=\"chapter\".*/$(SIDEBAR_HTML)/" $${f}; \
 	done
 	rsync --ignore-existing test/doc/book-extrafiles/*.html test/doc/book
-

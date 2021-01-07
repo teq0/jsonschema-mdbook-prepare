@@ -2,5 +2,9 @@
   "extends": [
     "oclif",
     "oclif-typescript"
-  ]
+  ],
+  "rules": {
+    "unicorn/filename-case": "off",
+    "quotes": [2, "single", { "allowTemplateLiterals": true }]
+  }
 }
