@@ -1,6 +1,6 @@
 import {Command, flags} from '@oclif/command'
 import * as fs from 'fs'
-import {SummaryGenerator} from '../SummaryGenerator'
+import {SummaryGenerator} from '../lib/SummaryGenerator'
 
 export default class GenSummary extends Command {
   static description = 'Generates a concise SUMMARY.md for mdbook for content generated using jsonschema2md. Book index will contain just the top level schemas, grouped by folder.'
