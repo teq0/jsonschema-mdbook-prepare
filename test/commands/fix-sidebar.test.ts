@@ -8,8 +8,6 @@ const mockSidebarFolders = () => {
   const mockfsConf = {
     'package.json': mockfs.load(path.resolve(__dirname, '../../package.json')),
     'tsconfig.json': mockfs.load(path.resolve(__dirname, '../../tsconfig.json')),
-    '.eslintrc': mockfs.load(path.resolve(__dirname, '../../.eslintrc')),
-    'bin': mockfs.load(path.resolve(__dirname, '../../bin')),
     'src': mockfs.load(path.resolve(__dirname, '../../src')),
     'test': mockfs.load(path.resolve(__dirname, '../../test')),
     'node_modules': mockfs.load(path.resolve(__dirname, '../../node_modules')),
