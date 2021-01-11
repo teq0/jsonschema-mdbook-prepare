@@ -33,7 +33,7 @@ example: clean json
 	@cp test/doc/book/*.html test/doc/book-extrafiles
 	./bin/run gen-summary -s ./test/samples -m ./test/doc/src
 	mdbook build test/doc
-	./bin/run fix-sidebar -s ./test/doc/book -d ./test/doc/book-extrafiles
+#	./bin/run fix-sidebar -s ./test/doc/book -d ./test/doc/book-extrafiles
 	rsync --ignore-existing test/doc/book-extrafiles/*.html test/doc/book
 
 

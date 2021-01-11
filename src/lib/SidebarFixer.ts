@@ -47,9 +47,9 @@ export default class SidebarFixer {
           this.updateFile(fullPath)
           fileCount++
         }
-      })
-    }
-    catch (error) {
+      }
+      )
+    } catch (error) {
       // maybe handle some errors here one day, but for now...
       throw error
     }

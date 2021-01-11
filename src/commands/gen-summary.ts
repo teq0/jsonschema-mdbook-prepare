@@ -1,6 +1,6 @@
 import {Command, flags} from '@oclif/command'
 import * as fs from 'fs'
-import {SummaryGenerator} from '../SummaryGenerator'
+import {SummaryGenerator} from '../lib/SummaryGenerator'
 
 export default class GenSummary extends Command {
   static description = 'Generates a concise SUMMARY.md for mdbook for content generated using jsonschema2md. Book index will contain just the top level schemas, grouped by folder.'
@@ -17,7 +17,7 @@ export default class GenSummary extends Command {
   static args = []
 
   async run() {
-    const {args, flags} = this.parse(GenSummary)
+    const {flags} = this.parse(GenSummary)
 
     if (!fs.existsSync(flags.schemaPath)) {
       this.error(`Schemas path does not exist: ${flags.schemaPath}`, {exit: 2})
