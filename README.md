@@ -1,10 +1,8 @@
 jsonschema-mdbook-prepare
 =========================
 
-[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
+[![CircleCI](https://circleci.com/gh/teq0/jsonschema-mdbook-prepare.svg?style=shield)](https://circleci.com/gh/teq0/jsonschema-mdbook-prepare)
 [![Version](https://img.shields.io/npm/v/jsonschema-mdbook-prepare.svg)](https://npmjs.org/package/jsonschema-mdbook-prepare)
-[![Downloads/week](https://img.shields.io/npm/dw/jsonschema-mdbook-prepare.svg)](https://npmjs.org/package/jsonschema-mdbook-prepare)
-[![License](https://img.shields.io/npm/l/jsonschema-mdbook-prepare.svg)](https://github.com/teq0/jsonschema-mdbook-prepare/blob/master/package.json)
 
 <!-- toc -->
 * [Overview](#overview)
