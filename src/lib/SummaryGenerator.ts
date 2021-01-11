@@ -70,8 +70,7 @@ export class SummaryGenerator {
           }
         }
       })
-    }
-    catch (error) {
+    } catch (error) {
       // maybe handle some errors here, but for now...
       throw error
     }
@@ -144,9 +143,9 @@ export class SummaryGenerator {
             schemaCount++
           }
         }
-      })
-    }
-    catch (error) {
+      }
+      )
+    } catch (error) {
       // maybe handle some errors here one day, but for now...
       throw error
     }

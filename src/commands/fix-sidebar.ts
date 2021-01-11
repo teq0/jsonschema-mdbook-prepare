@@ -16,7 +16,12 @@ export default class FixSidebar extends Command {
   static args = []
 
   async run() {
-    const {args, flags} = this.parse(FixSidebar)
+    const {flags} = this.parse(FixSidebar)
+
+    // not expecting any args
+    // if (args) {
+    //   this.error(`fix-sidebar does not take raw arguments`, {exit: 2})
+    // }
 
     if (!fs.existsSync(flags.sourcePath)) {
       this.error(`Source folder does not exist: ${flags.sourcePath}`, {exit: 2})

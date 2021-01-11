@@ -5,6 +5,7 @@ import * as path from 'path'
 const newSidebar = `                      <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html" class="active">Index</a></li></ol>`
 
 const mockSidebarFolders = () => {
+  /* eslint-disable quote-props */
   const mockfsConf = {
     'package.json': mockfs.load(path.resolve(__dirname, '../../package.json')),
     'tsconfig.json': mockfs.load(path.resolve(__dirname, '../../tsconfig.json')),
@@ -120,8 +121,9 @@ ${newSidebar}
   `,
     },
   }
+  /* eslint-enable quote-props */
 
-  // mockfs.restore()
+  // mockfs.restore() - not sure if we might need this
   mockfs(mockfsConf, {createCwd: false})
 }
 

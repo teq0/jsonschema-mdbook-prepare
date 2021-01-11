@@ -17,7 +17,7 @@ export default class GenSummary extends Command {
   static args = []
 
   async run() {
-    const {args, flags} = this.parse(GenSummary)
+    const {flags} = this.parse(GenSummary)
 
     if (!fs.existsSync(flags.schemaPath)) {
       this.error(`Schemas path does not exist: ${flags.schemaPath}`, {exit: 2})

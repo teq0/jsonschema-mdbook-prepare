@@ -4,6 +4,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 
 const mockFolders = () => {
+  /* eslint-disable quote-props */
   const mockfsConf = {
     'package.json': mockfs.load(path.resolve(__dirname, '../../package.json')),
     'tsconfig.json': mockfs.load(path.resolve(__dirname, '../../tsconfig.json')),
@@ -85,7 +86,7 @@ const mockFolders = () => {
 
     The schemas linked above follow the JSON Schema Spec version: \`http://json-schema.org/draft-07/schema#\`
 `,
-          'address-v1.md' : `
+          'address-v1.md': `
 # Address v1.0 Schema
 
 \`\`\`txt
@@ -129,7 +130,7 @@ https://example.com/Address-v1.0#/properties
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                   |
 | :------------------ | ---------- | -------------- | ----------------------- | :---------------- | --------------------- | ------------------- | -------------------------------------------------------------------------------------------- |
-| Can be instantiated | No         | Unknown status | Unknown identifiability | Forbidden         | Allowed               | none                | [Address-v1.0.schema.json\*](../out/FolderA/Address-v1.0.schema.json "open original schema") |
+| Can be instantiated | No         | Unknown status | Unknown identifiability | Forbidden         | Allowed               | none                | [Address-v1.0.schema.json\\*](../out/FolderA/Address-v1.0.schema.json "open original schema") |
 
 ## properties Type
 
@@ -139,10 +140,11 @@ unknown
         },
         'book-pass1': {
 
-        }
+        },
       },
     },
   }
+  /* eslint-enable quote-props */
 
   mockfs(mockfsConf, {createCwd: false})
 }
@@ -159,15 +161,18 @@ describe('gen-summary', () => {
     // make sure SUMMARY.md doesn't exist
     try {
       fs.unlinkSync(summaryPath)
+    } catch (error) {
+      // Don't care if it didn't exist
     }
-    catch (error) {}
-  })
+  }
+  )
   .finally(() => {
     mockfs.restore()
-  })
+  }
+  )
   .stdout()
   .command(['gen-summary', '-s', schemasPath, '-m', mdPath])
-  .it('runs gen-summary in schema mode and creates SUMMARY.md', ctx => {
+  .it('runs gen-summary in schema mode and creates SUMMARY.md', () => {
     expect(fs.existsSync(summaryPath)).to.be.true
     // more tests needed to check the actual content
   })
@@ -179,15 +184,17 @@ describe('gen-summary', () => {
     // make sure SUMMARY.md doesn't exist
     try {
       fs.unlinkSync(summaryPath)
+    } catch (error) {
+      // Don't care if it didn't exist
     }
-    catch (error) {}
-  })
+  }
+  )
   .finally(() => {
     mockfs.restore()
   })
   .stdout()
   .command(['gen-summary', '-a', '-s', schemasPath, '-m', mdPath])
-  .it('runs gen-summary in md mode and creates SUMMARY.md', ctx => {
+  .it('runs gen-summary in md mode and creates SUMMARY.md', () => {
     expect(fs.existsSync(summaryPath)).to.be.true
     // more tests needed to check the actual content
   })
