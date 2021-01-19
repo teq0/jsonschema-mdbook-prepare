@@ -1,5 +1,6 @@
 import * as path from 'path'
 import * as fs from 'fs'
+import * as yaml from 'js-yaml'
 
 class ReadMeIndex {
   private _content: string
@@ -57,7 +58,27 @@ export class SchemaInfo {
   }
 
   public static fromFile(filePath: string): SchemaInfo {
-    const j = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+    const buf = fs.readFileSync(filePath, 'utf8')
+    let jbuf = ''
+    const fileExt = path.extname(filePath)
+    switch (fileExt) {
+    case '.json': {
+      jbuf = buf
+      break
+    }
+
+    case '.yaml':
+    case '.yml': {
+      const ybuf = yaml.load(buf)
+      jbuf = JSON.stringify(ybuf)
+      break
+    }
+
+    default:
+      throw new Error(`Unknown file extension: ${fileExt}`)
+    }
+
+    const j = JSON.parse(jbuf)
     const id = j.$id
     const title = j.title
 
