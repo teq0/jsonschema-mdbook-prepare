@@ -1,6 +1,6 @@
 {
   "name": "jsonschema-mdbook-prepare",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Craig Hooper",
   "bin": {
     "jsonschema-mdbook-prepare": "./bin/run"

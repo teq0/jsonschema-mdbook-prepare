@@ -133,9 +133,8 @@ export class SummaryGenerator {
 
         if (fs.statSync(fullPath).isDirectory()) {
           const sub = new SchemaFolder(fullPath)
-          if (this.scanSchemaDir(sub, fullPath) > 0) {
-            schemaFolder.subFolders.push(sub)
-          }
+          this.scanSchemaDir(sub, fullPath)
+          schemaFolder.subFolders.push(sub)
         } else if (f.match(/.*\.schema\.json/)) {
           const schemaInfo = SchemaInfo.fromFile(fullPath)
           if (schemaInfo) {
