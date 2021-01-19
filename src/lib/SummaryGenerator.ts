@@ -133,8 +133,11 @@ export class SummaryGenerator {
 
         if (fs.statSync(fullPath).isDirectory()) {
           const sub = new SchemaFolder(fullPath)
-          this.scanSchemaDir(sub, fullPath)
-          schemaFolder.subFolders.push(sub)
+          const subschemaCount = this.scanSchemaDir(sub, fullPath)
+          if (subschemaCount > 0) {
+            schemaFolder.subFolders.push(sub)
+            schemaCount += subschemaCount
+          }
         } else {
           let schemaInfo: SchemaInfo | undefined
 
