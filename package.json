@@ -1,6 +1,6 @@
 {
   "name": "jsonschema-mdbook-prepare",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Craig Hooper",
   "bin": {
     "jsonschema-mdbook-prepare": "./bin/run"
@@ -10,6 +10,8 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
+    "@types/js-yaml": "^4.0.0",
+    "js-yaml": "^4.0.0",
     "tslib": "^1"
   },
   "devDependencies": {

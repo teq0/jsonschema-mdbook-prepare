@@ -135,8 +135,19 @@ export class SummaryGenerator {
           const sub = new SchemaFolder(fullPath)
           this.scanSchemaDir(sub, fullPath)
           schemaFolder.subFolders.push(sub)
-        } else if (f.match(/.*\.schema\.json/)) {
-          const schemaInfo = SchemaInfo.fromFile(fullPath)
+        } else {
+          let schemaInfo: SchemaInfo | undefined
+
+          if (f.match(/.*\.schema\.y[a]?ml/)) {
+            // only load YAML schemas if there is no JSON version
+            const jsonPath = fullPath.replace(/(.*)\.schema\.y[a]?ml/, `$1.schema.json`)
+            if (!fs.existsSync(jsonPath)) {
+              schemaInfo = SchemaInfo.fromFile(fullPath)
+            }
+          } else if (f.match(/.*\.schema\.json/)) {
+            schemaInfo = SchemaInfo.fromFile(fullPath)
+          }
+
           if (schemaInfo) {
             schemaFolder.schemas.push(schemaInfo)
             schemaCount++

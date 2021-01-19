@@ -32,7 +32,7 @@ $ npm install -g jsonschema-mdbook-prepare
 $ jsonschema-mdbook-prepare COMMAND
 running command...
 $ jsonschema-mdbook-prepare (-v|--version|version)
-jsonschema-mdbook-prepare/0.1.0 darwin-x64 node-v14.15.3
+jsonschema-mdbook-prepare/0.1.2 darwin-x64 node-v14.15.3
 $ jsonschema-mdbook-prepare --help [COMMAND]
 USAGE
   $ jsonschema-mdbook-prepare COMMAND
@@ -41,9 +41,13 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`jsonschema-mdbook-prepare fix-sidebar`](#jsonschema-mdbook-prepare-fix-sidebar)
-* [`jsonschema-mdbook-prepare gen-summary`](#jsonschema-mdbook-prepare-gen-summary)
-* [`jsonschema-mdbook-prepare help [COMMAND]`](#jsonschema-mdbook-prepare-help-command)
+- [jsonschema-mdbook-prepare](#jsonschema-mdbook-prepare)
+- [Overview](#overview)
+- [Usage](#usage)
+- [Commands](#commands)
+  - [`jsonschema-mdbook-prepare fix-sidebar`](#jsonschema-mdbook-prepare-fix-sidebar)
+  - [`jsonschema-mdbook-prepare gen-summary`](#jsonschema-mdbook-prepare-gen-summary)
+  - [`jsonschema-mdbook-prepare help [COMMAND]`](#jsonschema-mdbook-prepare-help-command)
 
 ## `jsonschema-mdbook-prepare fix-sidebar`
 
@@ -60,7 +64,7 @@ OPTIONS
   -v, --version                show CLI version
 ```
 
-_See code: [src/commands/fix-sidebar.ts](https://github.com/teq0/jsonschema-mdbook-prepare/blob/v0.1.0/src/commands/fix-sidebar.ts)_
+_See code: [src/commands/fix-sidebar.ts](https://github.com/teq0/jsonschema-mdbook-prepare/blob/v0.1.2/src/commands/fix-sidebar.ts)_
 
 ## `jsonschema-mdbook-prepare gen-summary`
 
@@ -78,7 +82,7 @@ OPTIONS
   -v, --version                show CLI version
 ```
 
-_See code: [src/commands/gen-summary.ts](https://github.com/teq0/jsonschema-mdbook-prepare/blob/v0.1.0/src/commands/gen-summary.ts)_
+_See code: [src/commands/gen-summary.ts](https://github.com/teq0/jsonschema-mdbook-prepare/blob/v0.1.2/src/commands/gen-summary.ts)_
 
 ## `jsonschema-mdbook-prepare help [COMMAND]`
 
